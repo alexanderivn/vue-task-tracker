@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "text": "Complete login page",
+      "day": "1982-02-12T05:36",
+      "reminder": false
+    },
+    {
+      "id": 2,
+      "text": "Make CRUD for teams",
+      "day": "1982-02-12T05:36",
+      "reminder": false
+    },
+    {
+      "id": 3,
+      "text": "Fix Rank Bugs",
+      "day": "2022-02-12T05:36",
+      "reminder": false
+    }
+  ]
+}
