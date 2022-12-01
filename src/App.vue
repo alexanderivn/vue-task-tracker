@@ -53,9 +53,12 @@ export default {
       this.tasks = [...this.tasks, task];
     },
 
-    deleteTask(id) {
+    async deleteTask(id) {
       if (confirm('Are you sure?')) {
-        this.tasks = this.tasks.filter((task) => task.id !== id)
+        const response = await fetch(`http://localhost:3000/tasks/${id}`, {
+          method: 'DELETE'
+        });
+        response.status === 200 ? (this.tasks = this.tasks.filter((task) => task.id !== id)) : alert('Failed to delete task')
       }
     },
 
