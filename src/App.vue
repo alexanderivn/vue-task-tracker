@@ -32,7 +32,7 @@ export default {
   },
 
   methods: {
-    toggleAddTask() {      
+    toggleAddTask() {
       this.showAddTask = !this.showAddTask;
     },
 
@@ -41,13 +41,21 @@ export default {
         ? { ...task, reminder: !task.reminder } : task)
     },
 
-    addTask(task) {
+    async addTask(task) {
+      const response = await fetch('http://localhost:3000/tasks', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(task),
+      })
+
       this.tasks = [...this.tasks, task];
     },
 
     deleteTask(id) {
       if (confirm('Are you sure?')) {
-        this.tasks = this.tasks.filter((task) => task.id !== id)        
+        this.tasks = this.tasks.filter((task) => task.id !== id)
       }
     },
 
